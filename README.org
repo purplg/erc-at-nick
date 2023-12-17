@@ -1,0 +1,41 @@
+#+TITLE: erc-at-nick
+
+Use a prefix like @ to create mentions in ERC!
+
+* Contents
+:PROPERTIES:
+:TOC:      :include siblings :depth 0 :force ((nothing)) :ignore (this) :local (nothing)
+:END:
+:CONTENTS:
+- [[#installation][Installation]]
+- [[#configuration][Configuration]]
+- [[#license][License]]
+:END:
+
+* Installation
+** straight.el
+
+Install from source. Straight example:
+
+#+BEGIN_SRC emacs-lisp :results none
+(straight-use-package '(erc-at-nick :type git :host github :repo "purplg/erc-at-nick"))
+;; -- Configuration goes here --
+#+END_SRC
+
+* Configuration
+
+Hook into ~erc-mode~:
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'erc-mode-hook #'erc-at-nick-mode)
+#+END_SRC
+
+Since this package relies on modifying the returned candidates with a prefix, it is recommended to use a simple completion style like ~basic~ within ERC buffers. Otherwise, you may get completion results when you don't expect them.
+
+#+BEGIN_SRC emacs-lisp
+(add-hook 'erc-mode-hook (lambda () (setq-local completion-styles '(basic))))
+#+END_SRC
+
+* License
+
+MIT
