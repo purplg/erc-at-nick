@@ -18,10 +18,7 @@ Additionally, the prefix is removed when completion is expanded."
   :type 'string)
 
 (defun erc-at-nick-pcomplete (nicks)
-  "Return a list of @nicks in the current channel.
-Optional argument POSTFIX is something to append to the nickname.  If
-optional argument IGNORE-SELF is non-nil, don't return the current
-nick."
+  "Replace completion nicks with prefixed versions"
   (mapcar
    (lambda (value) (concat erc-at-nick-prefix value))
    nicks))
