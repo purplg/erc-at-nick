@@ -30,7 +30,7 @@ Hook into ~erc-mode~:
 (add-hook 'erc-mode-hook #'erc-at-nick-mode)
 #+END_SRC
 
-Since this package relies on modifying completion candidates with a prefix, it is recommended to use a simple completion style like ~basic~ within ERC buffers. Otherwise, you may get completion results when you don't expect them.
+Since this package relies on modifying completion candidates with a prefix, it is recommended to use a simple completion style like ~basic~ within ERC buffers. Otherwise, you may get completion popups when you don't expect them.
 
 #+BEGIN_SRC emacs-lisp
 (add-hook 'erc-mode-hook (lambda () (setq-local completion-styles '(basic))))
